@@ -474,7 +474,19 @@ Using previous examples:
         # rest of code here
 ```
 
-For the second example, it's worth thinking about what messages the user would see. If you have an error handler that replies to the user, you may not need to add a custom
+For the second example, it's worth thinking about what messages the user would see. If you have an error handler that replies to the user, you may not need to add a custom message as well.
+
+Using `robot.emit` while in a listener to report an error and to associate it with a particular message can be a bit repetive. To fix this, there's a helper on `msg`:
+
+```coffeescript
+robot.hear /midnight train/i, (msg)
+  robot.http("https://midnight-train")
+    .get() (err, res, body) ->
+      if err
+        msg.error err
+        return
+      # rest of code here
+```
 
 ## Documenting Scripts
 

@@ -74,6 +74,14 @@ class Response
   random: (items) ->
     items[ Math.floor(Math.random() * items.length) ]
 
+  # Public: report that an error occurred while handling this response
+  #
+  # error - An Error
+  #
+  # Returns nothing
+  error: (error) ->
+    @robot.emit 'error', error, @
+
   # Public: Tell the message to stop dispatching to listeners
   #
   # Returns nothing.
