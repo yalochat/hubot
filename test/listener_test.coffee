@@ -77,7 +77,7 @@ describe 'Listener', ->
             done()
 
 
-        it 'returns true', () ->
+        it 'returns true', ->
           listenerCallback = sinon.spy()
           testMatcher = sinon.stub().returns(true)
           testMessage = {}
@@ -228,7 +228,7 @@ describe 'Listener', ->
             done()
 
 
-        it 'returns false', () ->
+        it 'returns false', ->
           listenerCallback = sinon.spy()
           testMatcher = sinon.stub().returns(false)
           testMessage = {}
